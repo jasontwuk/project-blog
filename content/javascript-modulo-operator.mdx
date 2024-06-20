@@ -1,7 +1,7 @@
 ---
-title: 'Understanding the JavaScript Modulo Operator'
+title: "Understanding the JavaScript Modulo Operator"
 abstract: One of the most commonly-misunderstood operators is Modulo (%). In this tutorial, we'll unpack exactly what this little bugger does, and learn how it can help us solve practical problems.
-publishedOn: '2023-09-06T12:00:00-0400'
+publishedOn: "2023-09-06T12:00:00-0400"
 ---
 
 When I was first learning to code, I remember finding the Modulo operator (%) _extremely_ confusing. 😬
@@ -30,7 +30,7 @@ Division can often feel pretty abstract or theoretical, but there's a practical 
 
 **TODO: Uncomment DivisionGroupsDemo**
 
-{/* <DivisionGroupsDemo /> */}
+<DivisionGroupsDemo />
 
 `12 ÷ 4` evaluates to `3`, because each group holds exactly 3 items. Essentially, we're figuring out how many items will be held inside each group.
 
@@ -83,7 +83,7 @@ This is a surprisingly tricky problem. Suppose we have a variable called `timeEl
 Essentially, we need to write a function that produces the following results:
 
 ```js
-const COLORS = ['red', 'yellow', 'blue'];
+const COLORS = ["red", "yellow", "blue"];
 
 getColor({ timeElapsed: 0 }); // 'red'
 getColor({ timeElapsed: 1 }); // 'yellow'
@@ -100,7 +100,7 @@ getColor({ timeElapsed: 8 }); // 'blue'
 Let's look at how the modulo operator can help us solve this problem:
 
 ```js
-const COLORS = ['red', 'yellow', 'blue'];
+const COLORS = ["red", "yellow", "blue"];
 
 function getColor({ timeElapsed }) {
   const colorIndex = timeElapsed % COLORS.length;

@@ -12,6 +12,8 @@ import { BLOG_TITLE } from '@/constants';
 
 import CodeSnippet from '@/components/CodeSnippet';
 
+import DivisionGroupsDemo from '@/components/DivisionGroupsDemo';
+
 export async function generateMetadata({ params }) {
   const { frontmatter } = await loadBlogPost(params.postSlug);
 
@@ -35,6 +37,7 @@ async function BlogPost({ params }) {
           source={content} 
           components={{
             pre: CodeSnippet,
+            DivisionGroupsDemo,
           }}
         />
       </div>
