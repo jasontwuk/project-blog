@@ -5,11 +5,16 @@ import {
 } from 'next/font/google';
 import clsx from 'clsx';
 
-import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
+import { LIGHT_TOKENS, DARK_TOKENS, BLOG_TITLE } from '@/constants';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './styles.css';
+
+export const metadata = {
+  title: BLOG_TITLE,
+  description: 'A wonderful blog about JavaScript',
+};
 
 const mainFont = Work_Sans({
   subsets: ['latin'],
