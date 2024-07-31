@@ -24,6 +24,8 @@ function DivisionGroupsDemo({
     numOfItems / numOfGroups
   );
 
+  const totalNumInGroup = numOfGroups * numOfItemsPerGroup;
+
   const remainder = includeRemainderArea
     ? numOfItems % numOfGroups
     : null;
@@ -64,22 +66,28 @@ function DivisionGroupsDemo({
             className={clsx(styles.demoArea)}
             style={gridStructure}
           >
-            {range(numOfGroups).map((groupIndex) => (
-              <div key={groupIndex} className={styles.group}>
-                {range(numOfItemsPerGroup).map((index) => {
-                  const totalInPrevGroup = groupIndex * numOfItemsPerGroup;
-                  const layoutId = `${id}-${totalInPrevGroup + index}`;
+            {range(numOfGroups).map((groupIndex) => {
+              const totalInPrevGroup = groupIndex * numOfItemsPerGroup;
+              
+              return (
+                <div key={groupIndex} className={styles.group}>
+                  {range(
+                    totalInPrevGroup, 
+                    totalInPrevGroup + numOfItemsPerGroup
+                  ).map((index) => {
+                    const layoutId = `${id}-${index}`;
 
-                  return (
-                    <motion.div
-                      key={layoutId}
-                      layoutId={layoutId}
-                      className={styles.item}
-                    />
-                  );
-                })}
-              </div>
-            ))}
+                    return (
+                      <motion.div
+                        key={layoutId}
+                        layoutId={layoutId}
+                        className={styles.item}
+                      />
+                    );
+                  })}
+                </div>
+              )
+            })}
           </div>
         </div>
 
@@ -89,9 +97,18 @@ function DivisionGroupsDemo({
               Remainder Area
             </p>
 
-            {range(remainder).map((index) => {
+            {range(
+              totalNumInGroup, 
+              numOfItems
+            ).reverse().map((index) => {
+              const layoutId = `${id}-${index}`;
+
               return (
-                <div key={index} className={styles.item} />
+                <motion.div 
+                  key={layoutId} 
+                  layoutId={layoutId} 
+                  className={styles.item} 
+                />
               );
             })}
           </div>
